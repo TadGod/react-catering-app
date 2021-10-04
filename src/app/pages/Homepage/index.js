@@ -6,6 +6,7 @@ import { Layout, ItemContentBox, BucketItems } from '../../components/complex';
 import mainphoto from '../../assets/images/catering.jpg';
 
 import content from '../../redux/inventory';
+import auth from '../../redux/auth'
 
 function Homepage() {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function Homepage() {
     const cart = useSelector(content.selectors.cart) || [];
     const products = useSelector(content.selectors.fullInventory) || [];
     const loading = useSelector(content.selectors.loading);
+    const loginStatus = useSelector(auth.selectors.loginStatus);
 
     useEffect(() => {
         dispatch(content.actions.getInventory())
@@ -43,16 +45,21 @@ function Homepage() {
                         ))}
                     </div>
                 </section>
-                <section className='bucket'>
+                {loginStatus ?
+                 <section className='bucket'>
                     <div className='bucket-header'>
-                            <p className='bucket-title'>My Bucket</p>
+                            <p className='bucket-title'>My Products</p>
                     </div>
                     <div className='bucket-items'>
                         {cart.map(({ id, name, price, quantity, image}) => (
                             <BucketItems id={id} key={id} name={name} price={price} quantity={quantity} image={image} />
                         ))}
+                        <button className='bucket-checkout'>CHECKOUT</button>
                     </div>
                 </section>
+                :
+                <div className='bucket-alternative'><p>You must login to view/use the shopping cart...</p></div>
+                }
             </section>
         </Layout>
     )
