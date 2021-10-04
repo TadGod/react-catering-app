@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { Layout } from '../../components/complex';
 import { Button} from '../../components/common';
 
 
 function Registration() {
+    const history = useHistory();
+
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [username, setUsername] = useState('');
@@ -25,8 +28,10 @@ function Registration() {
             const register = await response.json(); 
 
             if (register.details) {
-                setError(register.details[0].message.replace(/"/g, ''));
+                return setError(register.details[0].message.replace(/"/g, ''));
             }
+            
+            history.push('/login');
             
         } catch(err) {
             console.log(err);
