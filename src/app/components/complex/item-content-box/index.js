@@ -8,7 +8,7 @@ function Itemcontentbox( { img, title = 'no title given', price = 'no price give
         <section className='main-item-container'>
             <img src={img ? img : errorimage} alt={img ? 'product' : 'error'} className='item-image' />
             <div className='main-item' id={id}>
-                <Link to={`/${id}`}>
+                <Link to={`/item/${id}`}>
                     <p className='item-title'>{title}</p>
                 </Link>
                 <p className='item-price'>{price + '$ per serving'}</p>

@@ -18,12 +18,12 @@ function App() {
                 <Route exact path='/login'>
                     <Login />
                 </Route>
+                <PrivateRoute exact path='/item/:id'>
+                    <SingleProductOverview />
+                </PrivateRoute>
                 <Route exact path='/error'>
                     <NonExistantPage />
                 </Route>
-                <PrivateRoute exact path='/:id'>
-                    <SingleProductOverview />
-                </PrivateRoute>
                 <Redirect from='*' to='/error' />
             </Switch>
         </Router>
