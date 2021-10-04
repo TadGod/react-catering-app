@@ -55,7 +55,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 70%;
+    width: 60%;
 }
 
 .main-nav {
@@ -169,9 +169,13 @@ main {
 .bucket {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 30%;
+    align-items: center;
+    width: 40%;
     min-height: 400px;
+}
+
+.bucket-alternative {
+    margin-top: 20px;
 }
 
 .bucket-header {
@@ -183,7 +187,7 @@ main {
 .bucket-title {
     margin: 20px 0px 0px 0px;
     background-color: #BE2424;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
     padding: 15px;
     font-size: 20px;
     font-family: sans-serif;
@@ -192,15 +196,15 @@ main {
 }
 
 .bucket-items {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 80%;
     min-height: 600px;
-    border: 1px solid darkslategray;
-    border-top: none;
-    border-right: none;
     background-color: #C5BFBF;
+    border-radius: 0px 0px 10px 10px;
+    border-top: 0.5px solid crimson;
 }
 
 .bucket-item {
@@ -209,7 +213,7 @@ main {
     display: flex;
     margin-top: 10px;
     width: 90%;
-    height: 180px;
+    height: 150px;
     border-radius: 10px;
     box-shadow: 4px 3px 8px 1px #969696;
 }
@@ -275,7 +279,7 @@ main {
     font-size: 20px;
 }
 
-.bucket-button:hover {
+.bucket-button:hover, .bucket-checkout:hover {
     background-color: darkolivegreen;
     transition: background-color 250ms linear;
 }
@@ -298,6 +302,18 @@ main {
 
 .bucket-button-remove:hover, .bucket-button:hover {
     cursor: pointer;
+}
+
+.bucket-checkout {
+    color: white;
+    background-color: #78A568;
+    font-size: 20px;
+    position: absolute;
+    bottom: 2.5%;
+    padding: 3% 25%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
 }
 
 /* NAVIGATION UI */
